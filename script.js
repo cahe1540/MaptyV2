@@ -218,8 +218,9 @@ class App{
 
     _cancelAdd(e) {
         //remove all data on map for canceled workout
-        this.#map.removeLayer(this.#curPath);
         this.#map.removeLayer(this.#tempPopup);
+        if(this.#curPath)
+            this.#map.removeLayer(this.#curPath);
 
         //clear all data that's created to add new workout
         this.#curPath = null;
@@ -235,8 +236,6 @@ class App{
         //set adding and drawing to false
         this.#adding = false;
         this.#drawing = false;
-
-        console.log(this);
     }
 
     //function to close the begining instructions after 7 seconds
